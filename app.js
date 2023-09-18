@@ -13,7 +13,7 @@ app
 	.use(morgan('dev'))
 	.use(bodyParser.json())
 
-sequelize.initDb
+sequelize.initDb()
 
 //const findAllPokemons = require('./src/routes/FindAllPokemons')
 //findAllPokemons(app)
@@ -23,6 +23,7 @@ require('./src/routes/FindPokemonByPk')(app)
 require('./src/routes/CreatePokemon')(app)
 require('./src/routes/UpdatePokemon')(app)
 require('./src/routes/DeletePokemon')(app)
+require('./src/routes/Login')(app)
 
 app.use(({res}) => {
 	const message = 'Impossible de trouver la ressource demandée ! Vous pouvez essayer une autre URL.'
