@@ -7,9 +7,14 @@ module.exports = (sequelize, DataTypes) => {
 	  },
 	  username: {
 		type: DataTypes.STRING,
+		allowNull: false,
 		unique: {
 			msg:'Le nom est déja pris.'
-		}
+		},
+		validate: {
+			notEmpty: { msg: "L'username ne peut pas etre vide " },
+			notNull: { msg: "L'username est une propriété requise" },
+		  },
 	  },
 	  password: {
 		type: DataTypes.STRING
