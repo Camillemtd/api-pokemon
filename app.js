@@ -1,19 +1,21 @@
 const express = require('express')
-const morgan = require('morgan')
 const favicon = require('serve-favicon')
 const sequelize = require('./src/db/sequelize')
 const bodyParser = require('body-parser')
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app
 	.use(favicon(__dirname + '/favicon.ico'))
-	.use(morgan('dev'))
 	.use(bodyParser.json())
 
 sequelize.initDb()
+
+app.get('/', (req, res) => {
+	res.json('Hello, Heroku !')
+})
 
 //const findAllPokemons = require('./src/routes/FindAllPokemons')
 //findAllPokemons(app)
