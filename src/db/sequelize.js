@@ -4,8 +4,8 @@ const pokemons = require("./mock-pokemon");
 const UserModel = require("../models/user");
 
 let sequelize;
-if (process.env.NODE_ENV === production) {
-  const sequelize = new Sequelize(
+if (process.env.NODE_ENV === 'production') {
+   sequelize = new Sequelize(
     "tvfos9ld3ymssbga",
     "ettnbf40nlg16ot1",
     "wxxgha7v6a32z5ac",
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV === production) {
     dialectOptions: {
       timezone: "Etc/GMT-2",
     },
-    logging: true,
+    logging: false,
   });
 }
 
