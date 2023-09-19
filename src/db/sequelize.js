@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
    sequelize = new Sequelize(
     "tvfos9ld3ymssbga",
     "ettnbf40nlg16ot1",
-    "wxxgha7v6a32z5ac",
+    "qmj2cp2hcrz5rb5a",
     {
       host: "un0jueuv2mam78uv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       dialect: "mariadb",
@@ -33,7 +33,7 @@ const Pokemon = PokemonModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
 
 const initDb = () => {
-  return sequelize.sync().then((_) => {
+  return sequelize.sync({ force: true}).then((_) => {
     pokemons.map((pokemon) => {
       Pokemon.create({
         name: pokemon.name,
