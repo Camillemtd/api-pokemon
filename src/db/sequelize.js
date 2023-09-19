@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize')
 const PokemonModel = require('../models/pokemons')
 const pokemons = require('./mock-pokemon')
 const UserModel = require('../models/user')
-const bcrypt = require('bcrypt')
+
   
 const sequelize = new Sequelize('pokedex', 'root', '', {
   host: 'localhost',
