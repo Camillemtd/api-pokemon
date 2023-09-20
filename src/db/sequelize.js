@@ -2,18 +2,20 @@ const { Sequelize, DataTypes } = require("sequelize");
 const PokemonModel = require("../models/pokemons");
 const pokemons = require("./mock-pokemon");
 const UserModel = require("../models/user");
+require('dotenv').config();
+
 
 let sequelize;
 if (process.env.NODE_ENV === 'production') {
    sequelize = new Sequelize(
-    "tvfos9ld3ymssbga",
-    "ettnbf40nlg16ot1",
-    "qmj2cp2hcrz5rb5a",
+    process.env.DATABASE_NAME,
+    process.env.DATABASE_USER,
+    process.env.DATABASE_PASSWORD,
     {
-      host: "un0jueuv2mam78uv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-      dialect: "mariadb",
+      host: process.env.DATABASE_HOST,
+      dialect: process.env.DATABASE_DIALECT,
       dialectOptions: {
-        timezone: "Etc/GMT-2",
+        timezone: process.env.DATABASE_TIMEZONE,
       },
       logging: true,
     }
